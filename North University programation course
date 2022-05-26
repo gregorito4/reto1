@@ -1,0 +1,99 @@
+print("Ingrese el numero de personas que aplicaron")
+personas=int(input())
+cont=1
+continuan=0
+no_continuan=0
+afrodescendientes=0
+indigena=0
+raizal=0
+palenquero=0
+gitano=0
+sin_reconocimiento=0
+while cont<=personas:
+  print(f"\nCANDIDATO {cont}")
+  print("\n\nRECONOCIMIENTO ETNICO:")
+  while True:
+    print("Ingrese la etnia: ")
+    etnia= str(input())
+    if etnia=="afrodescendiente" or etnia== "Afrodescendiente" or etnia=="AFRODESCENDIENTE":
+      x1=1
+      afrodescendientes=afrodescendientes+1
+      break
+    elif etnia=="indigena" or etnia=="Indigena" or etnia=="INDIGENA":
+      x1=2
+      indigena=indigena+1
+      break
+    elif etnia=="raizal" or etnia=="Raizal" or etnia=="RAIZAL":
+      x1=3
+      raizal=raizal+1
+      break
+    elif etnia=="palenquero" or etnia=="Palenquero" or etnia=="PALENQUERO":
+      x1=4
+      palenquero=palenquero+1
+      break
+    elif etnia=="gitano" or etnia=="Gitano" or etnia=="GITANO":
+      x1=5
+      gitano=gitano+1
+      break
+    elif etnia==0:
+      x1=0
+      sin_reconocimiento=sin_reconocimiento+1
+      break
+    else:
+      print("Reconocimiento etnico invalido, intentelo de nuevo\n\n")
+  p1=3
+  print("\n\nESTRATO SOCIOECONOMICO:")
+  print("Por favor ingrese el estrato (1 - 6):")
+  estrato=int(input())
+  if estrato==1:
+    x2=3
+  elif estrato==2:
+    x2=2
+  elif estrato==3:
+    x2=1
+  elif estrato>=4 and estrato<=6:
+    x2=0
+  else:
+    print("Estrato invalido")
+    if etnia=="afrodescendiente" or etnia== "Afrodescendiente" or etnia=="AFRODESCENDIENTE":
+      afrodescendientes=afrodescendientes-1
+    elif etnia=="indigena" or etnia=="Indigena" or etnia=="INDIGENA":
+      indigena=indigena-1
+    elif etnia=="raizal" or etnia=="Raizal" or etnia=="RAIZAL":
+      raizal=raizal-1
+      break
+    elif etnia=="palenquero" or etnia=="Palenquero" or etnia=="PALENQUERO":
+      palenquero=palenquero-1
+    elif etnia=="gitano" or etnia=="Gitano" or etnia=="GITANO":
+      gitano=gitano-1
+    elif etnia==0:
+      sin_reconocimiento=sin_reconocimiento-1
+  p2=6
+  print("\n\nINGRESOS DEL NUCLEO FAMILIAR:")
+  print("Por favor ingrese el valor del salario:")
+  salario=float(input())
+  if salario<=908526 :
+    x3=5
+  elif salario>=908526 and salario<(908526*2):
+    x3=4
+  elif salario>(908526*2) and salario<=(908526*4):
+    x3=3
+  else:
+    x3=0
+  p3=7
+  total=(((x1*p1)+(x2*p2)+(x3*p3))/(p1+p2+p3))
+  
+  print(f"Para la etnia {etnia}, el estrato {estrato} y el ingreso {salario}")
+  if total >=3:
+    print("El candidato continua en el proceso de seleccion\n\n")
+    continuan=continuan+1
+  else:
+    print("El candidato no continua en el proceso de seleccion\n\n")
+    no_continuan=no_continuan+1
+  cont=cont+1
+print(f"De {personas} candidatos ingresados hay:\n   {continuan}...Que continuan\n   {no_continuan}...Que NO continuan")
+if x1!=0:
+  print(f"\n\n\nDe los cuales hay:\n   {sin_reconocimiento}...Sin reconocimiento etnico\n   {afrodescendientes}...Afrodescendientes\n   {indigena}...Indigenas\n   {raizal}...Raizales\n   {palenquero}...Palenqueros\n   {gitano}...Gitanos")
+
+import time
+time.sleep(10)
